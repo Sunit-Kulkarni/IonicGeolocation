@@ -13,6 +13,7 @@ import 'rxjs/add/operator/filter';
 @Injectable()
 export class LocationTrackerProvider {
   public watch: any;
+  //latitude and longitude coordinates
   public lat: number = 0;
   public lng: number = 0;
 
@@ -24,6 +25,7 @@ export class LocationTrackerProvider {
 
   startTracking() {
     // Background Tracking
+    // Takes care of both foreground and background geolocation
 
     let config = {
       desiredAccuracy: 0,
@@ -78,6 +80,7 @@ export class LocationTrackerProvider {
   }
 
   stopTracking() {
+    //stops the tracking of geolocation
     console.log('stopTracking');
 
     this.backgroundGeolocation.finish();
